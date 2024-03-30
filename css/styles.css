@@ -1,0 +1,376 @@
+body {
+    display: grid;
+    background-color: #F9F9F9;
+    font-family: 'Josefin Sans', sans-serif;
+    grid-template-columns: 1fr 6fr;
+    /* grid-template-rows: 48px auto; */
+    /* height: 100vh; */
+    margin: 0;
+}
+
+/* SIDEBAR STYLING */
+
+.sidebar {
+    background-color: #171926;
+    color: #A1A1A1;
+    /* grid-row: 1/3; */
+    height: 100vh;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #ff0000;
+    font-size: 42px;
+    margin: 0.5em;
+    font-family: 'Tektur', sans-serif;
+    cursor: default;
+}
+
+h2 {
+    font-size: 27px;
+    margin: 0.3em;
+    }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    font-size: 22px;
+    padding: 0.3em;
+}
+
+ul li:hover {
+    background-color: #2F3143;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: #A1A1A1;
+}
+
+/* TOP BAR STYLING */
+
+.manageBtns {
+    display: flex;
+    padding: 7px;
+}
+
+.breadCrumb {
+    margin: 0.1em 3em;
+    font-size: 30px;
+}
+
+.addNew, #submitButton {
+    margin-left: auto;
+    background-color: #0a0a4c;
+    color: #c4c4c4;
+    height: fit-content;
+    border-radius: 2px;
+    padding: 0.5em;
+}
+
+.addNew:hover, #submitButton:hover {
+  cursor: pointer;
+}
+
+button#submitButton {
+    border: none;
+    margin: auto;
+    display: block;
+    padding: 0.7em 1em;
+    font-size: 17px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+/* PAGE STYLING */
+
+.dataList {
+    background-color: #ECEBEE;
+}
+
+div.headers, div.data {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    margin: auto;
+    padding: 0 0.6em 0 0.8em;
+}
+
+div.headers p {
+    margin: 1em 0 0 0;
+}
+
+div.data {
+    background-color: white;
+    border-radius: 3px;
+    margin-top: 1em;
+}
+
+div.data:hover {
+    box-shadow: 0 0 10px 2px rgba(134, 134, 134, 0.2);
+    cursor: pointer;
+}
+
+div.dropdown {
+    background-color: white;
+    width: 75%;
+    margin: auto;
+    border-radius: 0 0 3px 3px;
+    padding: 0.7em;
+    /* border-top: 2px solid lightgray; */
+}
+
+div.noDropDown {
+    display: none;
+}
+
+.seperator {
+    border: 1px solid lightgray;
+}
+
+div.dropDownActive {
+    border-radius: 3px 3px 0 0;
+}
+
+div.dropDownActive p {
+    margin-bottom: 0;
+}
+
+div.dropdown p {
+    margin: 0;
+    padding: 0.7em 0.7em 0 0.7em;
+}
+
+.description, div.headers p {
+    font-weight: bold;
+}
+
+/* SPACING ITEMS IN THE FORGE LIST */
+
+div.spells div.headers, div.spells div.data, div.spells div.dropdown {
+    width: 90%;
+}
+
+.spellLevel {
+    width: 50px;
+}
+
+.spellName {
+    width: 200px;
+}
+
+.spellSchool {
+    width: 110px;
+}
+
+.spellCastTime {
+    width: 110px;
+}
+
+.spellDuration {
+    width: 80px;
+}
+
+.spellRange {
+    width: 70px;
+}
+
+.spellArea {
+    width: 100px;
+}
+
+.spellAttackSave {
+    width: 90px;
+}
+
+.monsterCR {
+    width: 30px;
+}
+
+.monsterName {
+    width: 350px;
+}
+
+/* TEMP STYLING */
+
+.monsterHP {
+    width: 60px;
+}
+
+.monsterAC {
+    width: 30px;
+}
+
+/* TEMP STYLING END */
+
+.monsterType {
+    width: 100px;
+}
+
+.monsterSize {
+    width: 100px;
+}
+
+.itemName {
+    width: 400px;
+}
+
+.itemType {
+    width: 120px;
+}
+
+.itemRarity {
+    width: 150px;
+}
+
+.itemAttunement {
+    width: 100px;
+}
+
+/* FORM STYLING */
+
+label {
+    display: flex;
+    flex-direction: column;
+    margin: 0.8em 0.5em;
+    font-size: 18px;
+}
+
+label p {
+    margin: 0 0 0.2em 0;
+}
+
+fieldset {
+    width: 30em;
+    margin: 1em auto 0 auto;
+    background-color: white;
+    border-radius: 5px;
+}
+
+input, select {
+    padding: 0.3em;
+    width: 19.2em;
+    font-size: 16px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+select {
+    width: 10em;
+}
+
+textarea {
+    width: 35.5em;
+    height: 20em;
+}
+
+/* STYLING FOR SPECIFIC FORM ELEMENTS/COMBOS */
+
+.numberAndSelect {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.numberAndSelect p {
+    margin: 0 81% 0.2em 0;
+}
+
+.numberAndSelect select, .numberAndSelect input {
+    width: 10em;
+    margin-right: 0.3em;
+}
+
+.numberAndSelect input, .number input {
+    width: 2.7em;
+}
+
+.monsterBaseStats, .monsterSavingThrows {
+    display: flex;
+    justify-content: space-between;
+}
+
+.statList {
+    display: flex;
+    margin: 1.7em 0 0.7em 0;
+}
+
+.statList label {
+    margin: 0 0.7em;
+}
+
+label.monsterTextArea textarea {
+    width: 40em;
+}
+
+form p.formHeader {
+    font-size: 18;
+    font-weight: bold;
+    margin: 0;
+    position: relative;
+    top: 0.7em;
+    left: 0.6em;
+}
+
+div.monsterHasSavingThrow input, div.monsterSkillsList label p input, div.monsterLanguages label p input {
+    width: fit-content;
+}
+
+div.monsterSkillsList label {
+    display: flex;
+    flex-direction: row;
+    margin: 0.5em;
+}
+
+div.monsterSkillsList label p {
+    width: 10em;
+    margin: 0.3em 0.3em 0 0;
+    height: fit-content;
+
+}
+
+div.monsterSkillsList, div.monsterLanguages {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+div.monsterLanguages label {
+    margin: 0.8em 0.5em 0 0.5em;
+}
+
+div.monsterGrid, div.monsterSimpleStats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+div.monsterGrid p span {
+    margin-right: 0.3em;
+    font-weight: bold;
+}
+
+div.monsterBaseStats, div.monsterDescriptions {
+    grid-column: 1/3;
+}
+
+div.monstersBaseStats {
+    display: flex;
+    margin-bottom: 0.7em;
+}
+
+div.monstersBaseStats p span {
+    font-weight: lighter;
+}
+
+p.monstersBaseStatsPTag {
+    font-weight: bold;
+    grid-column: 1/3;
+}
+
+.sidebarOffScreen {
+    top: -30px;
+}
