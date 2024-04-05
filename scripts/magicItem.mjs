@@ -3,6 +3,7 @@
 // displayList("/api/magic-items", processMagicItem, ".magicItemsNonHeaders", magicItemTemplate, "magicItemList", magicItemHeaderTemplate);
 
 export function magicItemTemplate(data) {
+    const description = data.description.join("<br><br>");
     return `<div class="data" data-index="${data.index}">
         <p class="itemName">${data.name}</p>
         <p class="itemType">${data.type}</p>
@@ -11,7 +12,7 @@ export function magicItemTemplate(data) {
     </div>
     <div class="dropdown noDropDown" id="${data.index}">
         <div class="seperator"></div>
-        <p class="description">Some kind of description here!</p>
+        <p class="description">${description}</p>
     </div>`;
 }
 
@@ -59,7 +60,7 @@ export function formatData() {
         type : document.querySelector("#itemType").value,
         rarity : document.querySelector("#itemRarity").value,
         attunement : document.querySelector("#itemAttunement").value,
-        description : document.querySelector("#itemDescription").value,
+        description : [document.querySelector("#itemDescription").value],
         index : "i0"
     }
     return obj;

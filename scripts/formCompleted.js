@@ -10,5 +10,5 @@ span2.innerHTML = category;
 const listReturn = document.querySelector("#listReturn");
 const createNew = document.querySelector("#createNew");
 
-listReturn.setAttribute("href", `../index.html?category=${category}s`);
+listReturn.setAttribute("href", `../list/index.html?category=${category}s`);
 createNew.setAttribute("href", `../forms/new${(category.charAt(0).toUpperCase()) + (category.slice(1))}.html`);
