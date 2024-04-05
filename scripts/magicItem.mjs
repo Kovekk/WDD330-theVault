@@ -39,7 +39,7 @@ export function processMagicItem(data) {
 export function magicItemHeaderTemplate() {
     return `<div class="manageBtns">
         <h3 class="breadCrumb">Magic Items</h3>
-        <a href="./forms/NewMagicItem.html" class="addNew">New Magic Item</a>
+        <a href="../forms/NewMagicItem.html" class="addNew">New Magic Item</a>
     </div>
     <div class="dataList magicItems">
         <div class="headers">
