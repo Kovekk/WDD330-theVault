@@ -13,21 +13,21 @@
         <div class="sidebar">
             <h1>DMTools</h1>
             <ul>
-              <a href="#"><li><h2>The Vault</h2></li></a>
-              <a href="../index.html?category=monsters"><li>Monsters</li></a>
-              <a href="../index.html?category=magicItems"><li>Magic Items</li></a>
-              <a href="../index.html?category=spells"><li>Spells</li></a>
+              <a href="../index.html"><li><h2>The Vault</h2></li></a>
+              <a href="../list/index.html?category=monsters"><li>Monsters</li></a>
+              <a href="../list/index.html?category=magicItems"><li>Magic Items</li></a>
+              <a href="../list/index.html?category=spells"><li>Spells</li></a>
             </ul>
         </div>
         <main>
             <div class="manageBtns">
                 <h3 class="breadCrumb">Spells</h3>
             </div>
-            <form>
+            <form name="createSpell">
                 <fieldset>
                     <label for="spellName" class="textbox">
                         <p>Name</p>
-                        <input type="text" name="spellName" id="spellName">
+                        <input type="text" name="spellName" id="spellName" required pattern="[A-Za-z0-9_\s]+" title="Letters, numbers, and underscores only">
                     </label>
                     <div class="statList">
                         <label for="spellLevel">
@@ -48,20 +48,20 @@
                         <label for="spellSchool">
                             <p>School of Magic</p>
                             <select name="spellSchool" id="spellSchool">
-                                <option value="abjuration">Abjuration</option>
-                                <option value="conjuration">Conjuration</option>
-                                <option value="divination">Divination</option>
-                                <option value="enchantment">Enchantment</option>
-                                <option value="evocation">Evocation</option>
-                                <option value="illusion">Illusion</option>
-                                <option value="necromancy">Necromancy</option>
-                                <option value="transmutation">Transmutation</option>
+                                <option value="Abjuration">Abjuration</option>
+                                <option value="Conjuration">Conjuration</option>
+                                <option value="Divination">Divination</option>
+                                <option value="Enchantment">Enchantment</option>
+                                <option value="Evocation">Evocation</option>
+                                <option value="Illusion">Illusion</option>
+                                <option value="Necromancy">Necromancy</option>
+                                <option value="Transmutation">Transmutation</option>
                             </select>
                         </label>
                     </div>
                     <label for="spellCastTime" class="numberAndSelect">
                         <p>Casting Time</p>
-                        <input type="number" name="spellCastTime" id="spellCastTime">
+                        <input type="number" name="spellCastTime" id="spellCastTime" required min="1">
                         <select name="spellCastMeasurement" id="spellCastMeasurement">
                             <option value="action">Action</option>
                             <option value="bonusAction">Bonus Action</option>
@@ -72,35 +72,36 @@
                     </label>
                     <label for="spellDuration" class="numberAndSelect">
                         <p>Duration</p>
-                        <input type="number" name="spellDuration" id="spellDuration">
+                        <input type="number" name="spellDuration" id="spellDuration" min="1" disabled>
                         <select name="spellDurationMeasurement" id="spellDurationMeasurement">
-                            <option value="instantaneous">Instantaneous</option>
-                            <option value="round">Rounds</option>
-                            <option value="minute">Minutes</option>
-                            <option value="hour">Hours</option>
-                            <option value="day">Days</option>
-                            <option value="untilDispelled">Until Dispelled</option>
+                            <option value="Instantaneous">Instantaneous</option>
+                            <option value="rounds">Rounds</option>
+                            <option value="minutes">Minutes</option>
+                            <option value="hours">Hours</option>
+                            <option value="days">Days</option>
+                            <option value="Until Dispelled">Until Dispelled</option>
                         </select>
                     </label>
                     <label for="spellRange" class="numberAndSelect">
                         <p>Range</p>
                         <select name="spellRange" id="spellRange">
-                            <option value="self">Self</option>
-                            <option value="touch">Touch</option>
-                            <option value="sight">Sight</option>
-                            <option value="ranged">Ranged</option>
-                            <option value="unlimited">Unlimited</option>
+                            <option value="Self">Self</option>
+                            <option value="Touch">Touch</option>
+                            <option value="Sight">Sight</option>
+                            <option value="Ranged">Ranged</option>
+                            <option value="Unlimited">Unlimited</option>
                         </select>
-                        <input type="number" name="spellRangeDistance" id="spellRangeDistance">
-                        <select name="spellRangeDistanceMeasurement" id="spellRangeDistanceMeasurement">
+                        <input type="number" name="spellRangeDistance" id="spellRangeDistance" min="1" disabled>
+                        <select name="spellRangeDistanceMeasurement" id="spellRangeDistanceMeasurement" disabled>
                             <option value="ft">Feet</option>
                             <option value="miles">Miles</option>
                         </select>
                     </label>
                     <label for="spellArea" class="numberAndSelect">
                         <p>Area</p>
-                        <input type="number" name="spellArea" id="spellArea">
-                        <select name="spellAreaMeasurement" id="spellAreaMeasurement">
+                        <p id="supplementText">Leave at 0 for none</p>
+                        <input type="number" name="spellArea" id="spellArea" min="0" value="0">
+                        <select name="spellAreaMeasurement" id="spellAreaMeasurement" disabled>
                             <option value="ft">Feet</option>
                             <option value="miles">Miles</option>
                         </select>
@@ -108,22 +109,25 @@
                     <label>
                         <p>Attack/Save</p>
                         <select name="attackSave" id="attackSave">
-                            <option value="str">Strength</option>
-                            <option value="dex">Dexterity</option>
-                            <option value="con">Constitution</option>
-                            <option value="wis">Wisdom</option>
-                            <option value="int">Intelligence</option>
-                            <option value="cha">Charimsa</option>
-                            <option value="melee">Melee</option>
-                            <option value="ranged">Ranged</option>
+                            <option value="none">None</option>
+                            <option value="STR">Strength</option>
+                            <option value="DEX">Dexterity</option>
+                            <option value="CON">Constitution</option>
+                            <option value="WID">Wisdom</option>
+                            <option value="INT">Intelligence</option>
+                            <option value="CHA">Charimsa</option>
+                            <option value="Melee">Melee</option>
+                            <option value="Ranged">Ranged</option>
                         </select>
                     </label>
                     <label for="spellDescription">
                         <p>Description</p>
                         <textarea name="spellDescription" id="spellDescription"></textarea>
                     </label>
+                    <button type="submit" id="submitButton">Create Spell</button>
                 </fieldset>
             </form>
         </main>
+        <script src="../scripts/spellForm.js" type="module"></script>
     </body>
 </html>

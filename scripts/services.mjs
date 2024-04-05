@@ -13,7 +13,7 @@ export function setLocalStorage(key, data) {
     }   else {
         let newData = [];
         newData.push(data);
-        console.log(newData);
+        // console.log(newData);
         localStorage.setItem(key, JSON.stringify(newData));
     }
     
@@ -54,4 +54,9 @@ export function getParam(param) {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     return urlParams.get(param);
-  }
+}
+
+export function changeWindowLocation(relativeURL, parentPage) {
+    const absoluteURL = new URL(relativeURL, window.location.href);
+    window.location.href = absoluteURL.href
+}

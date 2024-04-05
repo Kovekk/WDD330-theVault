@@ -3,6 +3,7 @@
 // displayPage("api/spells", processSpell, ".spellNonHeaders", spellTemplate, "spellList", spellHeaderTemplate);
 
 export function spellTemplate(data) {
+    const description = data.description.join("<br><br>");
     return `<div class="data" data-index="${data.index}">
         <p class="spellLevel">${data.level}</p>
         <p class="spellName">${data.name}</p>
@@ -15,7 +16,7 @@ export function spellTemplate(data) {
     </div>
     <div class="dropdown noDropDown" id="${data.index}">
         <div class="seperator"></div>
-        <p class="description">Description of some type for spell</p>
+        <p class="description">${description}</p>
     </div>`;
 }
 
@@ -70,16 +71,55 @@ export function spellHeaderTemplate() {
 }
 
 export function formatData() {
+    let spellDuration = "";
+    let spellRange = "";
+    let spellArea = "";
+    let spellAttackSave = "";
+
+    const spellDurationMeasurement = document.querySelector("#spellDurationMeasurement");
+    if (spellDurationMeasurement.value == "instantaneous" || spellDurationMeasurement.value == "untilDispelled") {
+        spellDuration = spellDurationMeasurement.value;
+    } else {
+        spellDuration = `${document.querySelector("#spellDuration").value} ${spellDurationMeasurement.value}`;
+    }
+
+
+    // If the spell range is ranged then the distance and measurement should be set to the range
+    if (document.querySelector("#spellRange") == "ranged") {
+        spellRange = `${document.querySelector("#spellRangeDistance").value} ${document.querySelector("#spellRangeDistanceMeasurement").value}`;
+    // Otherwise the range should be set to the spellRange option selected.
+    } else {
+        spellRange = `${document.querySelector("#spellRange").value}`
+    }
+
+    // if the spell area number input is 0 than there is no area
+    if (document.querySelector("#spellArea").value == 0) {
+        spellArea = " ";
+        // Otherwise the are should be set to the values in the two area fields.
+    } else {
+        spellArea = `${document.querySelector("#spellArea").value} ${document.querySelector("#spellAreaMeasurement").value}`;
+    }
+
+    if (document.querySelector("#attackSave").value == "none") {
+        spellAttackSave = " ";
+    } else {
+        spellAttackSave = document.querySelector("#attackSave").value;
+    }
+
+    // console.log(document.querySelector("spellDescription"));
+
     let obj = {
         level : document.querySelector("#spellLevel").value,
         name : document.querySelector("#spellName").value,
         school : document.querySelector("#spellSchool").value,
         castingTime : `${document.querySelector("#spellCastTime").value} ${document.querySelector("#spellCastMeasurement").value}`,
-        duration : `${document.querySelector("#spellDuration").value} ${document.querySelector("#spellDurationMeasurement").value}`,
-        range : `${document.querySelector("#spellRange").value} ${document.querySelector("#spellDistance").value} ${document.querySelector("#spellRangeDistanceMeasurement").value}`,
-        area : `${document.querySelector("#spellArea").value} ${document.querySelector("#spellAreaMeasurement").value}`,
-        attackSave : document.querySelector("#attackSave").value,
-        description : document.querySelector("#spellDescription").value,
+        duration : spellDuration,
+        range : spellRange,
+        area : spellArea,
+        attackSave : spellAttackSave,
+        // description : ["placeholder 1 and placerholder 2\nplaceholder3 3"],
+        description : [document.querySelector("#spellDescription").value],
         index : "s0"
-    }
+    };
+    return obj;
 }

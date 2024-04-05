@@ -13,10 +13,10 @@
         <div class="sidebar">
             <h1>DMTools</h1>
             <ul>
-              <a href="#"><li><h2>The Vault</h2></li></a>
-              <a href="../index.html?category=monsters"><li>Monsters</li></a>
-              <a href="../index.html?category=magicItems"><li>Magic Items</li></a>
-              <a href="../index.html?category=spells"><li>Spells</li></a>
+                <a href="../index.html"><li><h2>The Vault</h2></li></a>
+              <a href="../list/index.html?category=monsters"><li>Monsters</li></a>
+              <a href="../list/index.html?category=magicItems"><li>Magic Items</li></a>
+              <a href="../list/index.html?category=spells"><li>Spells</li></a>
             </ul>
         </div>
         <main>
@@ -27,7 +27,7 @@
                 <fieldset>
                     <label for="itemName" class="textbox">
                         <p>Name</p>
-                        <input type="text" name="itemName" id="itemName">
+                        <input type="text" name="itemName" id="itemName" required pattern="[A-Za-z0-9_\s]+" title="Letters, numbers, and underscores only">
                     </label>
                     <label for="itemType">
                         <p>Type</p>
@@ -65,6 +65,7 @@
                         <p>Description</p>
                         <textarea name="itemDescription" id="itemDescription"></textarea>
                     </label>
+                    <button type="submit" id="submitButton">Create Spell</button>
                 </fieldset>
             </form>
         </main>

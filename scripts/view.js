@@ -1,7 +1,7 @@
 import { getData, getLocalStorage, getParam } from "./services.mjs";
 import { processMonster, monsterTemplate, monsterHeaderTemplate } from "./monster.mjs";
 import { processMagicItem, magicItemTemplate, magicItemHeaderTemplate } from "./magicItem.mjs";
-import { processSpell, spellTemplate, spellHeaderTemplate } from "./Spell.mjs";
+import { processSpell, spellTemplate, spellHeaderTemplate } from "./spell.mjs";
 
 export async function displayPage(url, processorFn, elemSelector, templateFn, key, headerTemplate) {
     const data = await getData(url);
