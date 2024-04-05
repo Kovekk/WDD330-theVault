@@ -52,7 +52,7 @@ export function processSpell(data) {
 export function spellHeaderTemplate() {
     return `<div class="manageBtns">
     <h3 class="breadCrumb">Spells</h3>
-    <a href="./forms/NewSpell.html" class="addNew">New Spell</a>
+    <a href="../forms/NewSpell.html" class="addNew">New Spell</a>
     </div>
     <div class="dataList spells">
         <div class="headers">
