@@ -52,7 +52,7 @@ export function processMonster(data) {
 export function monsterHeaderTemplate() {
     return `<div class="manageBtns">
     <h3 class="breadCrumb">Monsters</h3>
-    <a href="./forms/NewMonster.html" class="addNew">New Monster</a>
+    <a href="../forms/NewMonster.html" class="addNew">New Monster</a>
 </div>
 <div class="dataList monsters">
     <div class="headers">
